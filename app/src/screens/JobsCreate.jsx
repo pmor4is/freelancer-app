@@ -1,19 +1,27 @@
-import React, { useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { View, Text, TextInput, Button, StyleSheet, Modal } from 'react-native';
 import { Calendar, CalendarList, Agenda } from 'react-native-calendars';
 import DateTimePicker from '@react-native-community/datetimepicker';
 
 import styles from './styles/JobsCreateStyle';
+import { JobsContext } from '../context/JobsContext';
 
-export default function JobsCreate() {
-    const [title, setTitle] = useState('');
-    const [description, setDescription] = useState('');
-    const [payment, setPayment] = useState('');
-    const [date, setDate] = useState(new Date());
-    const [employer, setEmployer] = useState('');
-    const [local, setLocal] = useState('');
-    const [hour, setHour] = useState(new Date());
-    const [transport, setTransport] = useState('');
+export default function JobsCreate(props) {
+
+    const { id, title, description, payment, employer, date, hour, local, transport, setId, setTitle, setDescription, setPayment, setEmployer, setDate, setHour, setLocal, setTransport, saveData } = useContext(JobsContext);
+    useEffect(() => {
+        setId("");
+        setTitle("");
+        setDescription("");
+        setPayment("");
+        setEmployer("");
+        setDate("");
+        setLocal("");
+        setHour("");
+        setTransport("");
+        console.log("setou id vazio");
+
+    }, []);
     const [showDatePicker, setShowDatePicker] = useState(false);
     const [showTimePicker, setShowTimePicker] = useState(false);
     const [selectedDate, setSelectedDate] = useState(new Date());
@@ -142,7 +150,10 @@ export default function JobsCreate() {
                 value={transport}
                 onChangeText={setTransport}
             />
-            <Button title="Salvar" onPress={handleSave} />
+            <Button
+                title="Salvar"
+                onPress={() => { saveData(); props.navigation.goBack() }}
+            />
         </View>
     );
 };

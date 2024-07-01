@@ -2,7 +2,7 @@ import { useNavigation } from '@react-navigation/native';
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 
-export default function HomeScreen() {
+export default function HomeScreen(props) {
   navigation = useNavigation();
   return (
     <View style={styles.container}>
@@ -10,7 +10,7 @@ export default function HomeScreen() {
       <Text style={styles.subtitle}>Conecte-se com empresas e freelancers talentosos</Text>
 
       <View style={styles.buttonsContainer}>
-        <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Ofertas')}>
+        <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('jobsList')}>
           <Text style={styles.buttonText}>Visualizar Ofertas</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('jobsCreate')}>
