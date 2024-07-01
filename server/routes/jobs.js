@@ -5,7 +5,7 @@ const client = require('../database/database');
 router.get("/", (req, res) => {
     try {
         console.log("Query GET executing");
-        client.query("SELECT * FROM jobs", function (error, result) {
+        client.query("SELECT * FROM Jobs", function (error, result) {
             if (error) return console.error("Error executing SELECT ALL query from infrastructure. Error: ", error);
             res.send(result.rows[0]);
             console.log("Query GET executed successfully");

@@ -5,7 +5,7 @@ import { useNavigation } from '@react-navigation/native';
 
 export default function JobCard({ info }) {
     const navigation = useNavigation();
-    const { title, description, payment, id, date, local, hour, transport } = info; // Obter id da info
+    const { title, description, payment, date, local, hour, transport } = info; // Obter id da info
 
     return (
         <View style={styles.container}>
@@ -20,7 +20,7 @@ export default function JobCard({ info }) {
 
                     <TouchableHighlight 
                         style={styles.viewRestaurant}
-                        onPress={() => navigation.navigate('jobDetails', { jobId: id })} // Corrigindo a navegação e parâmetro
+                        onPress={() => navigation.navigate('jobDetails', { info })} // Corrigindo a navegação e parâmetro
                     >
                         <Text style={styles.viewRestaurantText}>Mais Informações</Text>
                     </TouchableHighlight>

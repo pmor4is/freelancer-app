@@ -3,7 +3,7 @@ import axios from 'axios';
 
 export const JobsContext = createContext({});
 
-const url = "https://freelancer-app-server.vercel.app/jobs"
+const url = "https://freelancer-app-elephant.vercel.app/jobs"
 
 export default function JobsProvider({ children }) {
 
@@ -104,10 +104,10 @@ export default function JobsProvider({ children }) {
     const [description, setDescription] = useState("");
     const [payment, setPayment] = useState("");
     const [date, setDate] = useState("");
-    const [employer, setEmployer] = useState([]);
-    const [local, setLocal] = useState([]);
-    const [hour, setHour] = useState('');
-    const [transport, setTransport] = useState('');
+    const [employer, setEmployer] = useState("");
+    const [local, setLocal] = useState("");
+    const [hour, setHour] = useState("");
+    const [transport, setTransport] = useState("");
     const [jobs, setJobs] = useState([]);
     const [update, setUpdate] = useState({});
 
